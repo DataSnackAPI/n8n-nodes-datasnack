@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-datasnack",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "DataSnack gates in n8n: Jev answers, code checks every answer, and what code cannot confirm goes to your own AI or a person.",
   "keywords": [
     "n8n-community-node-package",

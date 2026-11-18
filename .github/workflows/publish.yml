@@ -1,5 +1,6 @@
-# Publishes the package to npm, with a provenance statement, when a version tag (0.2.1) is pushed.
+# Stages the package on npm, with a provenance statement, when a version tag (0.2.1) is pushed.
 # npm trusts this workflow through Trusted Publishing (OIDC): no npm token is stored in the repository.
+# A staged version goes live once a maintainer approves it on npmjs.com (or `npm stage approve <id>`) with 2FA.
 name: Publish
 
 on:
@@ -23,7 +24,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
-      - name: Use an npm that supports Trusted Publishing
+      - name: Use an npm that supports staged publishing
         run: npm install -g npm@latest
 
       - name: Install
@@ -32,5 +33,5 @@ jobs:
       - name: Check the tag matches package.json
         run: test "$(node -p "require('./package.json').version")" = "${GITHUB_REF_NAME}"
 
-      - name: Publish
-        run: npm publish --provenance --access public
+      - name: Stage for publishing
+        run: npm stage publish --provenance --access public

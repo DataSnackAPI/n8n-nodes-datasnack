@@ -48,8 +48,9 @@ npm run lint      # n8n's community node checks
 npm test          # builds, then runs the unit tests
 ```
 
-Releases are published to npm by GitHub Actions, with provenance, when a version tag is pushed: bump `version` in
-`package.json`, commit, then `git tag 0.2.1 && git push --tags`.
+Releases are staged on npm by GitHub Actions, with provenance, when a version tag is pushed: bump `version` in
+`package.json`, commit, then `git tag 0.2.1 && git push --tags`. A maintainer then approves the staged version on
+npmjs.com.
 
 ## License
 
