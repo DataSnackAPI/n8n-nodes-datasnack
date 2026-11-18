@@ -1,0 +1,60 @@
+{
+  "name": "n8n-nodes-datasnack",
+  "version": "0.2.0",
+  "description": "DataSnack gates in n8n: Jev answers, code checks every answer, and what code cannot confirm goes to your own AI or a person.",
+  "keywords": [
+    "n8n-community-node-package",
+    "datasnack",
+    "human-in-the-loop",
+    "approval",
+    "decision",
+    "rules"
+  ],
+  "license": "MIT",
+  "homepage": "https://datasnack.ai/docs#n8n",
+  "author": {
+    "name": "DataSnack",
+    "email": "support@datasnack.ai",
+    "url": "https://datasnack.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataSnackAPI/n8n-nodes-datasnack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DataSnackAPI/n8n-nodes-datasnack/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc && cp nodes/Datasnack/*.svg dist/nodes/Datasnack/",
+    "test": "npm run build && node --test test/*.test.js",
+    "prepack": "npm run build",
+    "lint": "n8n-node lint",
+    "prepublishOnly": "npm run lint && npm test"
+  },
+  "files": [
+    "dist",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/DatasnackApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Datasnack/Datasnack.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "^0.57.4",
+    "eslint": "^9.39.4",
+    "n8n-workflow": "2.16.0",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
